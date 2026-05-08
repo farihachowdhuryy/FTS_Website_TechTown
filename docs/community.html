@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Community — FTS Fishing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="no-promo">
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">~ Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="shop-dropdown-btn">Shop
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="shop-dropdown-menu">
+          <a href="shop.html">Shop</a>
+          <a href="view-products.html">View Products</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="comm-dropdown-btn">Community
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="comm-dropdown-menu">
+          <a href="community.html">Public Community</a>
+          <a href="community.html#guidelines">Community Guidelines</a>
+          <a href="about.html#partners">Contributing Partners</a>
+        </div>
+      </div>
+      <a href="app.html" class="nav-link">App</a>
+      <a href="about.html" class="nav-link">About FTS Fishing</a>
+      <a href="about-the-team.html" class="nav-link">About the Team</a>
+    </div>
+    <div class="nav-icons">
+      <button class="icon-btn" id="search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" id="cart-btn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">2</span>
+      </button>
+      <button class="icon-btn" id="user-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+    <!--<div style="display:flex;align-items:center;gap:.5rem;" class="md-hide">
+      <button class="icon-btn" id="cart-btn-mobile" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">2</span>
+      </button>-->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">~ Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="view-products.html">View Products</a>
+  <a href="community.html">Community</a>
+  <a href="app.html">App</a>
+  <a href="about.html">About FTS Fishing</a>
+  <a href="about-the-team.html">About the Team</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-content">
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+    <h1>The Community</h1>
+    <p>Fishing tips, reports, and real stories from the shore.</p>
+  </div>
+  <div class="page-hero-fade"></div>
+</section>
+
+<!-- BLOG POSTS -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <div class="section-eyebrow blue" style="display:flex;justify-content:center;">Blog &amp; Tips</div>
+      <h2 class="section-title">Fishing Reports &amp; Stories</h2>
+      <div class="section-divider blue"></div>
+    </div>
+    <div class="cat-filter-tabs">
+      <button class="cat-tab active" data-cat="all">All Posts</button>
+      <button class="cat-tab" data-cat="news">Fishing News</button>
+      <button class="cat-tab" data-cat="tips">Tips &amp; Techniques</button>
+      <button class="cat-tab" data-cat="knots">Knots</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+      <!-- Blog 1 -->
+      <div class="blog-item blog-card reveal" data-cat="news">
+        <div class="blog-img">
+         <img src="images/dnr-fish-stocking.jpg" alt="Michigan DNR Fish Stocking">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="tag tag-gold">Fishing News</span>
+            <span class="blog-date">August 2025</span>
+          </div>
+          <h3 class="blog-title">Michigan DNR Stocks 18.9 Million Fish</h3>
+          <p class="blog-excerpt">Great news for shore anglers in Michigan! The Michigan DNR recently announced it stocked 18.9 million fish across the state's lakes and rivers this year — with thousands making their way into prime shore fishing spots. This represents one of the largest stocking programs in recent history. For bank anglers this means improved access to a wider variety of species including Walleye, Steelhead, Lake Trout, Salmon and Brown Trout.</p>
+          <a href="article-michigan-dnr.html" class="read-more">Read More &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="blog-item blog-card reveal" data-cat="tips">
+        <div class="blog-img">
+         <img src="images/shore-fishing.png" alt="Finding Fish">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="tag tag-blue">Tips &amp; Techniques</span>
+            <span class="blog-date">2025</span>
+          </div>
+          <h3 class="blog-title">Finding Fish from the Shore: 5 Pro Tips</h3>
+          <p class="blog-excerpt">One of the most effective strategies for shore anglers is identifying structural features visible from the bank. Look for points where you can see a transition between deep and shallow water — or identify where a current break might channel baitfish. Learn to read the water and let the fish find you. Patience, positioning, and the right time of day make all the difference.</p>
+          <a href="article-finding-fish.html" class="read-more">Read More &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="blog-item blog-card reveal" data-cat="tips">
+        <div class="blog-img">
+          <img src="images/grubin.jpg" alt="Curl Tail Grub" style="object-position: left center;">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="tag tag-gold">Tips &amp; Techniques</span>
+            <span class="blog-date">2025</span>
+          </div>
+          <h3 class="blog-title">Curl Tail Grub — A Shore Angler's Best Friend</h3>
+          <p class="blog-excerpt">The curl tail grub is one of the most versatile and effective lures for shore fishing. Whether you're targeting bass, walleye, or panfish — this simple bait can be rigged in many ways to cover all depths. The best setup is a 1/8 or 1/4 oz jig head with a 3-4 inch curl tail grub in chartreuse, white, or motor oil color. Work it slowly along the bottom to mimic a crawfish or injured baitfish.</p>
+          <a href="article-curl-tail-grub.html" class="read-more">Read More &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Blog 4 -->
+      <div class="blog-item blog-card reveal" data-cat="knots">
+        <div class="blog-img">
+          <img src="images/Palomar_Knot.jpg" alt="Palomar Knot">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="tag tag-blue">Knots</span>
+            <span class="blog-date">2025</span>
+          </div>
+          <h3 class="blog-title">Palomar Knot — Strongest All-Purpose Knot</h3>
+          <p class="blog-excerpt">The Palomar knot is one of the strongest and most reliable fishing knots. It retains nearly 100% line strength and is simple to tie — making it the go-to for attaching hooks, swivels, and lures. Thread 4-6 inches of line through the eye of the hook, double it back through again, then tie a loose overhand knot, pass the hook through the loop, and pull tight. Simple, fast, and nearly unbreakable.</p>
+         <a href="article-palomar-knot.html" class="read-more">Read More &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Blog 5 -->
+      <div class="blog-item blog-card reveal" data-cat="knots">
+        <div class="blog-img">
+          <img src="images/Clinch Knot.jpg" alt="Clinch Knot">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="tag tag-gold">Knots</span>
+            <span class="blog-date">2025</span>
+          </div>
+          <h3 class="blog-title">Improved Clinch Knot — The Classic Standard</h3>
+          <p class="blog-excerpt">The Improved Clinch Knot is one of the most widely used fishing knots in the world. It's fast to tie, dependable under pressure, and works with mono, fluoro, or braid. Pass 6 inches of line through the hook eye, make 5-7 wraps around the main line, thread the tag end through the loop near the eye, then pass it back through the large loop you just created. Wet the knot and pull tight. Clip the tag end close.</p>
+         <a href="article-clinch-knot.html" class="read-more">Read More &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SHOW US YOUR CATCH -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="section-eyebrow reveal">Community Submissions</div>
+        <h2 class="section-title reveal">Show Us Your Catch!</h2>
+        <p class="text-muted mb-3 reveal">Caught something worth bragging about? Share your catch with the FTS Fishing community. Your story might be featured right here on the FTS website or social media!</p>
+        <ul style="list-style:none;font-size:.875rem;line-height:2.2;color:rgba(255,255,255,.75);margin-bottom:2rem;" class="reveal">
+          <li>&#9989; Submit your best catches</li>
+          <li>&#9989; Share your favorite spots (general area)</li>
+          <li>&#9989; Get featured on FTS social media</li>
+          <li>&#9989; Inspire fellow shore anglers</li>
+        </ul>
+        <div style="background:var(--bg);border:1px solid rgba(245,168,0,.15);padding:1.5rem;" class="reveal">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.21-1.21a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.8);">(724) 824-3474</span>
+          </div>
+          <p style="font-size:.75rem;color:var(--muted);">Mon–Fri 9AM–5PM EST</p>
+        </div>
+      </div>
+      <div>
+        <div id="success-catch" style="display:none;" class="success-box gold">
+          &#127898; Thank you for sharing your catch! We'll review it and may feature it on our site!
+        </div>
+        <form data-form="catch" style="background:var(--bg2);border:1px solid var(--border);padding:2rem;">
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--white);margin-bottom:1.5rem;">Submit Your Catch</h3>
+          <div class="form-group"><label class="form-label">Your Name / Spot</label><input type="text" class="form-input" placeholder="Your name and general location" required></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="your@email.com" required></div>
+          <div class="form-group"><label class="form-label">Tell Us About Your Catch</label><textarea class="form-textarea" rows="3" placeholder="Species, size, what bait/lure, time of day..." required></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Photo Attachment</label>
+            <div class="upload-zone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Drag &amp; drop a photo, or click to browse</span>
+              <input type="file" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full mt-2">Send &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRIBUTING PARTNERS - FISHING REPORT -->
+<section id="guidelines" class="section">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="section-eyebrow blue reveal">Partners</div>
+        <h2 class="section-title reveal">Contributing Partners</h2>
+        <p class="text-muted mb-3 reveal">Are you a fishing guide, tackle shop, or conservation organization? FTS Contributing Partners can submit fishing reports directly to our community platform, keeping shore anglers informed about what's biting and where.</p>
+        <div style="background:var(--bg2);border:1px solid rgba(56,189,248,.15);padding:1.5rem;" class="reveal">
+          <p style="font-size:.8rem;font-weight:700;color:var(--blue);margin-bottom:.5rem;">Partner Benefits</p>
+          <ul style="list-style:none;font-size:.8rem;color:rgba(255,255,255,.7);line-height:2;">
+            <li>&#9675; Post live fishing reports to the FTS community</li>
+            <li>&#9675; Promote your business to thousands of anglers</li>
+            <li>&#9675; Be listed on the FTS Contributing Partners page</li>
+            <li>&#9675; Connect with the FTS Angler App user base</li>
+          </ul>
+        </div>
+        <div style="margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);padding:1.25rem;display:flex;gap:.75rem;align-items:center;" class="reveal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span style="font-size:.8rem;color:rgba(255,255,255,.7);">info@ftsfishing.com</span>
+        </div>
+      </div>
+      <div>
+        <div id="success-partner" style="display:none;" class="success-box blue">
+          &#9989; Your fishing report has been submitted! Thank you for contributing to the FTS community!
+        </div>
+        <form data-form="partner" style="background:var(--bg2);border:1px solid var(--border);padding:2rem;">
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--white);margin-bottom:1.5rem;">Submit a Fishing Report</h3>
+          <div class="form-group"><label class="form-label">Your Name / Organization</label><input type="text" class="form-input" placeholder="Name or organization" required></div>
+          <div class="form-group"><label class="form-label">Fishing Spot / Location</label><input type="text" class="form-input" placeholder="Lake, river, or general area" required></div>
+          <div class="form-group"><label class="form-label">What Are You Catching?</label><input type="text" class="form-input" placeholder="Species, size, method..." required></div>
+          <div class="form-group"><label class="form-label">Report Details</label><textarea class="form-textarea" rows="3" placeholder="Water conditions, bait recommendations, best times..." required></textarea></div>
+          <button type="submit" class="btn btn-blue btn-full mt-2">Post Report &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY GUIDELINES -->
+<section class="section section-alt">
+  <div class="container text-center">
+    <div class="reveal"><div class="section-eyebrow blue" style="display:flex;justify-content:center;">Guidelines</div><h2 class="section-title">Community Guidelines</h2><div class="section-divider blue" style="margin-left:auto;margin-right:auto;"></div></div>
+    <div class="grid grid-3 mt-4">
+      <div class="feature-card text-center reveal"><div class="feature-icon gold" style="margin:0 auto 1.25rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4 class="feature-title">Respect the Water</h4><p class="feature-text">Always practice catch-and-release properly, follow local regulations, and leave no trace. We fish because we love it — protect it for future generations.</p></div>
+      <div class="feature-card text-center reveal reveal-delay-1"><div class="feature-icon blue" style="margin:0 auto 1.25rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4 class="feature-title">Respect Each Other</h4><p class="feature-text">This is a welcoming community for all anglers, regardless of skill level or background. Treat fellow anglers with the respect you expect on the water.</p></div>
+      <div class="feature-card text-center reveal reveal-delay-2"><div class="feature-icon gold" style="margin:0 auto 1.25rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4 class="feature-title">Honest Reporting</h4><p class="feature-text">All catch submissions and league scores must be verified and honest. The FTS community is built on trust — PORT technology helps keep it that way.</p></div>
+    </div>
+  </div>
+</section>
+
+</div>
+<footer class="footer"><div class="container"><p>Copyright &copy; 2026 FTS Fishing &mdash; All Rights Reserved.</p><div class="footer-links"><a href="about.html#partners">Contributing Partners</a><a href="about-the-team.html">About the Team</a><a href="terms.html">Terms and Conditions</a></div><p style="margin-top:.5rem;font-size:.65rem;opacity:.3;">Powered by FTS Fishing</p></div></footer>
+<div class="search-overlay" id="search-overlay"><div class="search-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--gold);flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="search-input" placeholder="Search products..."><button id="search-close" style="background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="search-bg" id="search-bg"><div class="search-results" id="search-results"></div></div></div>
+<div class="cart-overlay" id="cart-overlay"><div class="cart-backdrop" id="cart-backdrop"></div><div class="cart-drawer"><div class="cart-header"><h3>Your Cart</h3><button id="cart-close" style="background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-body"><div class="cart-item"><div class="cart-thumb"></div><div><div class="cart-item-name">FTS Anglers Hat</div><div class="cart-item-qty">Qty: 1</div></div><div class="cart-item-price">$16.00</div></div></div><div class="cart-footer"><div class="cart-subtotal"><span>Subtotal</span><span>$16.00</span></div><a href="shop.html" class="btn btn-gold btn-full" style="display:block;">Checkout</a></div></div></div>
+<script src="main.js"></script>
+</body>
+</html>
