@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Improved Clinch Knot — The Classic Standard — FTS Fishing</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .article-hero {
+    padding: 7rem 0 3rem;
+    background: linear-gradient(135deg,#060d1a 0%,#0a1628 60%,#070f1c 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .8rem;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    transition: opacity .2s;
+  }
+  .article-back:hover { opacity: .7; }
+  .article-tag-row {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1rem;
+  }
+  .article-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    max-width: 760px;
+  }
+  .article-meta {
+    font-size: .8rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+  .article-meta span { color: var(--border2); }
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    align-items: start;
+    padding: 3rem 0 5rem;
+  }
+  @media(max-width:768px){
+    .article-layout { grid-template-columns: 1fr; }
+    .article-sidebar { display: none; }
+  }
+  .article-featured-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+  }
+  .article-body {
+    font-size: .95rem;
+    line-height: 1.85;
+    color: rgba(232,236,241,.85);
+  }
+  .article-body p { margin-bottom: 1.25rem; }
+  .article-body strong { color: var(--white); }
+  .article-body h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin: 2rem 0 .75rem;
+  }
+  .step-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+    color: rgba(232,236,241,.8);
+    line-height: 1.7;
+  }
+  .step-box strong { color: var(--gold); }
+  /* Sidebar */
+  .article-sidebar { position: sticky; top: 4.5rem; }
+  .sidebar-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .sidebar-box h4 {
+    font-family: var(--font-serif);
+    font-size: .95rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-post {
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-post:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .sidebar-post-thumb {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .sidebar-post-title {
+    font-size: .78rem;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: .2rem;
+  }
+  .sidebar-post-date { font-size: .7rem; color: var(--muted); }
+  .sidebar-cat {
+    display: block;
+    font-size: .8rem;
+    color: rgba(232,236,241,.6);
+    padding: .35rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color .2s;
+  }
+  .sidebar-cat:hover { color: var(--blue); }
+  .sidebar-cat.active { color: var(--gold); font-weight: 600; }
+</style>
+</head>
+<body class="no-promo">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">~ Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="shop-dropdown-btn">Shop
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="shop-dropdown-menu">
+          <a href="shop.html">Shop</a>
+          <a href="view-products.html">View Products</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="comm-dropdown-btn">Community
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="comm-dropdown-menu">
+          <a href="community.html">Public Community</a>
+          <a href="community.html#guidelines">Community Guidelines</a>
+          <a href="about.html#partners">Contributing Partners</a>
+        </div>
+      </div>
+      <a href="app.html" class="nav-link">App</a>
+      <a href="about.html" class="nav-link">About FTS Fishing</a>
+      <a href="about-the-team.html" class="nav-link">About the Team</a>
+    </div>
+    <div class="nav-icons">
+      <button class="icon-btn" id="search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" id="cart-btn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">2</span>
+      </button>
+      <button class="icon-btn" id="user-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+    <!--<div style="display:flex;align-items:center;gap:.5rem;" class="md-hide">
+      <button class="icon-btn" id="cart-btn-mobile" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">2</span>
+      </button>-->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">~ Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="view-products.html">View Products</a>
+  <a href="community.html">Community</a>
+  <a href="app.html">App</a>
+  <a href="about.html">About FTS Fishing</a>
+  <a href="about-the-team.html">About the Team</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-content">
+
+  <!-- ARTICLE HERO -->
+  <div class="article-hero">
+    <div class="container">
+      <a href="community.html" class="article-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        All Posts
+      </a>
+      <div class="article-tag-row">
+        <span class="tag tag-gold">Knots</span>
+        <span style="font-size:.8rem;color:var(--muted);">July 21, 2025</span>
+      </div>
+      <h1 class="article-title">Improved Clinch Knot — The Classic Standard</h1>
+      <div class="article-meta">
+        <span>By FTS Fishing</span>
+        <span>|</span>
+        <span>Fishing Tips</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE CONTENT + SIDEBAR -->
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- MAIN CONTENT -->
+      <article>
+        <img src="images/gallery-3.png" alt="Improved Clinch Knot" class="article-featured-img">
+
+        <div class="article-body">
+
+          <p>Your knot represents the weakest link between you and the fish of a lifetime. Always take your time and tie a good knot — using good quality line will also allow you to tie a better, stronger knot.</p>
+
+          <h3>How to Tie the Improved Clinch Knot</h3>
+
+          <div class="step-box">
+            <strong>Step 1:</strong> Pass line through the eye of the hook. Leave about 12 inches of free line.
+          </div>
+          <div class="step-box">
+            <strong>Step 2:</strong> Make 4 to 6 wraps around the main line with the free end.
+          </div>
+          <div class="step-box">
+            <strong>Step 3:</strong> Bring the free end back through the eye of the hook, then back through the loop formed in the line.
+          </div>
+          <div class="step-box">
+            <strong>Step 4:</strong> Moisten the line and while firmly holding the hook in one hand and free line in the other hand, pull the knot tight. Trim off excess.
+          </div>
+           <img src="images/clinch-knot-steps.png" alt="Improved Clinch Knot Steps" class="article-featured-img" style="max-height:none; object-fit:contain; max-width:600px; display:block; margin:1.5rem auto;">
+          <p>The Improved Clinch Knot is one of the most widely used fishing knots in the world. It's fast to tie, dependable under pressure, and works with mono, fluoro, or braid — making it a must-know for every angler.</p>
+
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="sidebar-box">
+          <h4>Categories</h4>
+          <a href="community.html" class="sidebar-cat active">All Posts</a>
+          <a href="community.html" class="sidebar-cat">Fishing Tips</a>
+          <a href="community.html" class="sidebar-cat">News</a>
+        </div>
+        <div class="sidebar-box">
+          <h4>Recent Posts</h4>
+          <div class="sidebar-post">
+            <img src="images/gallery-1.png" alt="Michigan DNR" class="sidebar-post-thumb">
+            <div>
+              <div class="sidebar-post-title"><a href="article-michigan-dnr.html">Michigan DNR Stocks 18.9 Million Fish</a></div>
+              <div class="sidebar-post-date">August 2025</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <img src="images/charter-inshore.png" alt="Finding Fish" class="sidebar-post-thumb">
+            <div>
+              <div class="sidebar-post-title"><a href="article-finding-fish.html">Finding Fish from the Shore: 5 Pro Tips</a></div>
+              <div class="sidebar-post-date">2025</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <img src="images/charter-offshore.png" alt="Palomar Knot" class="sidebar-post-thumb">
+            <div>
+              <div class="sidebar-post-title"><a href="article-palomar-knot.html">Palomar Knot — Strongest All-Purpose Knot</a></div>
+              <div class="sidebar-post-date">2025</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer"><div class="container"><p>Copyright &copy; 2026 FTS Fishing &mdash; All Rights Reserved.</p><div class="footer-links"><a href="about.html#partners">Contributing Partners</a><a href="about-the-team.html">About the Team</a><span style="color:rgba(255,255,255,.15);">Terms and Conditions</span></div><p style="margin-top:.5rem;font-size:.65rem;opacity:.3;">Powered by FTS Fishing</p></div></footer>
+
+<script src="main.js"></script>
+</body>
+</html>

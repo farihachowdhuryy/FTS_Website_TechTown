@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finding Fish from the Shore: 5 Pro Tips — FTS Fishing</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .article-hero {
+    padding: 7rem 0 3rem;
+    background: linear-gradient(135deg,#060d1a 0%,#0a1628 60%,#070f1c 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .8rem;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    transition: opacity .2s;
+  }
+  .article-back:hover { opacity: .7; }
+  .article-tag-row {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1rem;
+  }
+  .article-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    max-width: 760px;
+  }
+  .article-meta {
+    font-size: .8rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+  .article-meta span { color: var(--border2); }
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    align-items: start;
+    padding: 3rem 0 5rem;
+  }
+  @media(max-width:768px){
+    .article-layout { grid-template-columns: 1fr; }
+    .article-sidebar { display: none; }
+  }
+  .article-featured-img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+  }
+  .article-img-caption {
+    font-size: .75rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: -.5rem;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+  .article-body {
+    font-size: .95rem;
+    line-height: 1.85;
+    color: rgba(232,236,241,.85);
+  }
+  .article-body p { margin-bottom: 1.25rem; }
+  .article-body strong { color: var(--white); }
+  .article-body ul {
+    margin: 0 0 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .article-body ul li { color: rgba(232,236,241,.85); }
+  /* Sidebar */
+  .article-sidebar { position: sticky; top: 4.5rem; }
+  .sidebar-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .sidebar-box h4 {
+    font-family: var(--font-serif);
+    font-size: .95rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-post {
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-post:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .sidebar-post-thumb {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .sidebar-post-title {
+    font-size: .78rem;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: .2rem;
+  }
+  .sidebar-post-date { font-size: .7rem; color: var(--muted); }
+  .sidebar-cat {
+    display: block;
+    font-size: .8rem;
+    color: rgba(232,236,241,.6);
+    padding: .35rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color .2s;
+  }
+  .sidebar-cat:hover { color: var(--blue); }
+  .sidebar-cat.active { color: var(--gold); font-weight: 600; }
+</style>
+</head>
+<body class="no-promo">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">~ Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="shop-dropdown-btn">Shop
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="shop-dropdown-menu">
+          <a href="shop.html">Shop</a>
+          <a href="view-products.html">View Products</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="comm-dropdown-btn">Community
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="comm-dropdown-menu">
+          <a href="community.html">Public Community</a>
+          <a href="community.html#guidelines">Community Guidelines</a>
+          <a href="about.html#partners">Contributing Partners</a>
+        </div>
+      </div>
+      <a href="app.html" class="nav-link">App</a>
+      <a href="about.html" class="nav-link">About FTS Fishing</a>
+      <a href="about-the-team.html" class="nav-link">About the Team</a>
+    </div>
+    <div class="nav-icons">
+      <button class="icon-btn" id="search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" id="cart-btn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">2</span>
+      </button>
+      <button class="icon-btn" id="user-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+    <!--<div style="display:flex;align-items:center;gap:.5rem;" class="md-hide">
+      <button class="icon-btn" id="cart-btn-mobile" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">2</span>
+      </button>-->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">~ Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="view-products.html">View Products</a>
+  <a href="community.html">Community</a>
+  <a href="app.html">App</a>
+  <a href="about.html">About FTS Fishing</a>
+  <a href="about-the-team.html">About the Team</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-content">
+
+  <!-- ARTICLE HERO -->
+  <div class="article-hero">
+    <div class="container">
+      <a href="community.html" class="article-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        All Posts
+      </a>
+      <div class="article-tag-row">
+        <span class="tag tag-blue">Tips &amp; Techniques</span>
+        <span style="font-size:.8rem;color:var(--muted);">July 22, 2025</span>
+      </div>
+      <h1 class="article-title">Finding Fish from the Shore: 5 Pro Tips</h1>
+      <div class="article-meta">
+        <span>By FTS Fishing</span>
+        <span>|</span>
+        <span>Fishing Tips</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE CONTENT + SIDEBAR -->
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- MAIN CONTENT -->
+      <article>
+        <img src="images/charter-inshore.png" alt="Finding Fish from the Shore" class="article-featured-img">
+
+        <div class="article-body">
+
+          <p>Finding fish is the one key to catching fish. Knowing where fish live will improve your odds of catching!</p>
+
+          <ul>
+            <li>Fish prefer places where they can hide, both to forage, and to prevent becoming forage to bigger fish. Look for places that create shade in the water, such as laydown trees, stumps, brush piles and rock piles. Other good places are boat docks, and those with brush placed underneath are preferred. Fish will live in good numbers around these places, along with bridge piers.</li>
+            <li>Different species of fish prefer different water temperatures, but a good rule of thumb is to start shallow in the spring, and try deeper water as the summer warms the water.</li>
+            <li>On sunny days, fish will be closer to cover than they will on cloudy days.</li>
+          </ul>
+
+
+          <ul>
+            <li>Vary your approach, both size and colors. As a general rule, light colors work better on bright, sunny days, and darker colors work better on overcast days, or murky water conditions.</li>
+            <li>Fish can become accustomed to your lures, both in action and colors. When you have caught several in one area with one style of bait, before moving on, switch to a different type of bait, or a different color. Many times this will add extra fish to your creel!</li>
+            <li>Use the right line size for the lure you're using. Generally, line from 4 to 8lb test for crappie and panfish, 8 to 14 for bass. Always check your drag periodically during the day, to make sure you are ready for the fish of a lifetime!</li>
+          </ul>
+
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="sidebar-box">
+          <h4>Categories</h4>
+          <a href="community.html" class="sidebar-cat active">All Posts</a>
+          <a href="community.html" class="sidebar-cat">Fishing Tips</a>
+          <a href="community.html" class="sidebar-cat">News</a>
+        </div>
+        <div class="sidebar-box">
+          <h4>Recent Posts</h4>
+          <div class="sidebar-post">
+            <img src="images/gallery-1.png" alt="Michigan DNR" class="sidebar-post-thumb">
+            <div>
+              <div class="sidebar-post-title"><a href="article-michigan-dnr.html">Michigan DNR Stocks 18.9 Million Fish</a></div>
+              <div class="sidebar-post-date">August 2025</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <img src="images/gallery-2.png" alt="Curl Tail Grub" class="sidebar-post-thumb">
+            <div>
+              <div class="sidebar-post-title"><a href="article-curl-tail-grub.html">Curl Tail Grub — A Shore Angler's Best Friend</a></div>
+              <div class="sidebar-post-date">2025</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <img src="images/charter-offshore.png" alt="Palomar Knot" class="sidebar-post-thumb">
+            <div>
+              <div class="sidebar-post-title"><a href="article-palomar-knot.html">Palomar Knot — Strongest All-Purpose Knot</a></div>
+              <div class="sidebar-post-date">2025</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer"><div class="container"><p>Copyright &copy; 2026 FTS Fishing &mdash; All Rights Reserved.</p><div class="footer-links"><a href="about.html#partners">Contributing Partners</a><a href="about-the-team.html">About the Team</a><span style="color:rgba(255,255,255,.15);">Terms and Conditions</span></div><p style="margin-top:.5rem;font-size:.65rem;opacity:.3;">Powered by FTS Fishing</p></div></footer>
+
+<script src="main.js"></script>
+</body>
+</html>
