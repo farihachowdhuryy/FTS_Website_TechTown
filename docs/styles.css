@@ -203,7 +203,7 @@ body.no-promo .page-content { padding-top: 52px; }
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
-  background: url('images/hero-bg.png') center/cover no-repeat;
+  background: url('images/HeroBanner.jpg') center/cover no-repeat;
 }
 .hero-bg::before {
   content: ''; position: absolute; inset: 0;
