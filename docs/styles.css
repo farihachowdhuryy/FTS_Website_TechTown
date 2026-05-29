@@ -322,7 +322,7 @@ body.no-promo .page-content { padding-top: 52px; }
 .page-hero {
   min-height: 55vh; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden; text-align: center;
-  background: url('images/hero-bg.png') center/cover no-repeat;
+  background: url('images/HeroBanner.jpg') center/cover no-repeat;
 }
 .page-hero::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
