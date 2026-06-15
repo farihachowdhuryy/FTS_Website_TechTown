@@ -66,6 +66,92 @@ if (mobileBtn && mobileMenu) {
   });
 }
 
+/* ── CART SYSTEM (localStorage) ── */
+const CART_KEY = 'fts_cart';
+
+function getCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  catch { return []; }
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartBadge();
+}
+
+window.addToCart = function(name, price, cat, img) {
+  const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const cart = getCart();
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ id, name, price: parseFloat(price) || 0, cat: cat || '', img: img || '', qty: 1 });
+  }
+  saveCart(cart);
+  showCartToast(name);
+};
+
+window.removeCartItem = function(id) {
+  saveCart(getCart().filter(item => item.id !== id));
+  if (typeof window.renderCartPage === 'function') window.renderCartPage();
+};
+
+window.cartQty = function(id, delta) {
+  const cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.qty = Math.max(1, item.qty + delta);
+    saveCart(cart);
+    if (typeof window.renderCartPage === 'function') window.renderCartPage();
+  }
+};
+
+function updateCartBadge() {
+  const cart = getCart();
+  const total = cart.reduce((sum, item) => sum + item.qty, 0);
+  document.querySelectorAll('.cart-badge').forEach(el => {
+    el.textContent = total;
+    el.style.display = total > 0 ? '' : 'none';
+  });
+}
+window.updateCartBadge = updateCartBadge;
+
+function showCartToast(name) {
+  document.querySelectorAll('.fts-cart-toast').forEach(t => t.remove());
+  const toast = document.createElement('div');
+  toast.className = 'fts-cart-toast';
+  const short = name.length > 30 ? name.slice(0, 30) + '\u2026' : name;
+  toast.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg><span>' + short + ' added to cart</span>';
+  toast.style.cssText = 'position:fixed;bottom:2rem;right:2rem;background:var(--gold);color:#080f1c;padding:.875rem 1.5rem;font-weight:700;font-size:.82rem;z-index:9999;box-shadow:0 4px 24px rgba(0,0,0,.5);display:flex;align-items:center;gap:.5rem;transition:opacity .4s;letter-spacing:.02em;pointer-events:none;';
+  document.body.appendChild(toast);
+  setTimeout(() => { toast.style.opacity = '0'; }, 2100);
+  setTimeout(() => toast.remove(), 2600);
+}
+
+/* Wire "Add to Cart" buttons on product cards */
+document.querySelectorAll('.product-item').forEach(card => {
+  card.querySelectorAll('button').forEach(btn => {
+    if (btn.textContent.trim() === 'Add to Cart') {
+      btn.addEventListener('click', () => {
+        window.addToCart(
+          card.dataset.name || '',
+          parseFloat((card.dataset.price || '0').replace('$', '')),
+          card.dataset.cat || '',
+          card.querySelector('img') ? card.querySelector('img').src : ''
+        );
+      });
+    }
+  });
+});
+
+/* Cart icon → navigate to cart.html */
+document.querySelectorAll('#cart-btn, #cart-btn-mobile').forEach(btn => {
+  if (btn) btn.addEventListener('click', () => { window.location.href = 'cart.html'; });
+});
+
+updateCartBadge();
+
 /* ── SEARCH OVERLAY ── */
 const searchBtn = document.getElementById('search-btn');
 const searchOverlay = document.getElementById('search-overlay');
@@ -80,7 +166,7 @@ const ALL_PRODUCTS = [
   { name: 'From the Shore Fishing Cap', price: '$16.00', cat: 'Fitted Hats', url: 'shop.html' },
   { name: 'Limited Edition From The Shore Angler Hat', price: '$16.00', cat: 'Fitted Hats', url: 'shop.html' },
   { name: 'FTS All Over Print Sport Pullover', price: '$39.00', cat: "Men's Gear", url: 'shop.html' },
-  { name: 'FTS Brand Logo — Devon Jones Pullover', price: '$40.00', cat: "Men's Gear", url: 'shop.html' },
+  { name: 'FTS Brand Logo \u2014 Devon Jones Pullover', price: '$40.00', cat: "Men's Gear", url: 'shop.html' },
   { name: 'Tight Lines Logo Zip Garment', price: '$32.00', cat: "Men's Gear", url: 'shop.html' },
 ];
 
@@ -99,14 +185,11 @@ function closeSearch() {
 }
 
 function renderPopular() {
-  return `<p style="font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:1rem;">Popular</p>
-  <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
-    ${['FTS Hat','Pullover','Zip Garment','Tight Lines','Custom Hats'].map(t =>
-      `<button onclick="document.getElementById('search-input').value='${t}';doSearch('${t}')"
-        style="padding:.5rem 1rem;background:rgba(255,255,255,.05);border:1px solid var(--border);color:rgba(255,255,255,.6);font-size:.8rem;cursor:pointer;transition:color .2s"
-        onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,.6)'">${t}</button>`
-    ).join('')}
-  </div>`;
+  return '<p style="font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:1rem;">Popular</p>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:.5rem;">' +
+    ['FTS Hat', 'Pullover', 'Zip Garment', 'Tight Lines', 'Custom Hats'].map(t =>
+      '<button onclick="document.getElementById(\'search-input\').value=\'' + t + '\';doSearch(\'' + t + '\')" style="padding:.5rem 1rem;background:rgba(255,255,255,.05);border:1px solid var(--border);color:rgba(255,255,255,.6);font-size:.8rem;cursor:pointer;transition:color .2s" onmouseover="this.style.color=\'var(--gold)\'" onmouseout="this.style.color=\'rgba(255,255,255,.6)\'">' + t + '</button>'
+    ).join('') + '</div>';
 }
 
 function doSearch(q) {
@@ -114,14 +197,11 @@ function doSearch(q) {
   if (!q) { searchResultsEl.innerHTML = renderPopular(); return; }
   const results = ALL_PRODUCTS.filter(p => p.name.toLowerCase().includes(q.toLowerCase()));
   if (results.length === 0) {
-    searchResultsEl.innerHTML = `<p style="color:var(--muted);text-align:center;padding:3rem 0;">No products found for "${q}"</p>`;
+    searchResultsEl.innerHTML = '<p style="color:var(--muted);text-align:center;padding:3rem 0;">No products found for "' + q + '"</p>';
     return;
   }
-  searchResultsEl.innerHTML = `<p style="font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:1rem;">Results for "${q}"</p>` +
-    results.map(p => `<a href="${p.url}" class="search-result-item">
-      <div><div class="name">${p.name}</div><div class="cat">${p.cat}</div></div>
-      <div class="price">${p.price}</div>
-    </a>`).join('');
+  searchResultsEl.innerHTML = '<p style="font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:1rem;">Results for "' + q + '"</p>' +
+    results.map(p => '<a href="' + p.url + '" class="search-result-item"><div><div class="name">' + p.name + '</div><div class="cat">' + p.cat + '</div></div><div class="price">' + p.price + '</div></a>').join('');
 }
 
 if (searchBtn) searchBtn.addEventListener('click', openSearch);
@@ -133,21 +213,6 @@ if (searchInput) {
 }
 if (searchResultsEl) searchResultsEl.innerHTML = renderPopular();
 
-/* ── CART DRAWER ── */
-const cartBtn = document.getElementById('cart-btn');
-const cartBtnMobile = document.getElementById('cart-btn-mobile');
-const cartOverlay = document.getElementById('cart-overlay');
-const cartBackdrop = document.getElementById('cart-backdrop');
-const cartClose = document.getElementById('cart-close');
-
-function openCart() { if (cartOverlay) { cartOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; } }
-function closeCart() { if (cartOverlay) { cartOverlay.classList.remove('open'); document.body.style.overflow = ''; } }
-
-if (cartBtn) cartBtn.addEventListener('click', openCart);
-if (cartBtnMobile) cartBtnMobile.addEventListener('click', openCart);
-if (cartBackdrop) cartBackdrop.addEventListener('click', closeCart);
-if (cartClose) cartClose.addEventListener('click', closeCart);
-
 /* ── SHOP FILTER TABS ── */
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -156,7 +221,7 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
     tab.classList.add('active');
     const filter = tab.dataset.filter;
     document.querySelectorAll('.product-item').forEach(item => {
-      if (filter === 'all' || item.dataset.category.split(' ').includes(filter) || (filter === 'popular' && item.dataset.popular)) {
+      if (filter === 'all' || item.dataset.category === filter || (filter === 'popular' && item.dataset.popular) || (filter === 'bestseller' && item.dataset.bestseller)) {
         item.style.display = '';
       } else {
         item.style.display = 'none';
@@ -217,6 +282,21 @@ document.querySelectorAll('.qv-btn').forEach(btn => {
 if (qvClose) qvClose.addEventListener('click', closeQuickView);
 if (qvBg) qvBg.addEventListener('click', closeQuickView);
 
+const qvAddBtn = document.querySelector('#quick-view-modal .btn-gold');
+if (qvAddBtn) {
+  qvAddBtn.addEventListener('click', () => {
+    if (qvName && qvPrice) {
+      window.addToCart(
+        qvName.textContent,
+        parseFloat((qvPrice.textContent || '0').replace('$', '')),
+        qvCat ? qvCat.textContent : '',
+        qvImg ? qvImg.src : ''
+      );
+    }
+    closeQuickView();
+  });
+}
+
 /* ── SPECIES SELECTOR ── */
 document.querySelectorAll('.species-item').forEach(item => {
   item.addEventListener('click', () => {
@@ -230,7 +310,7 @@ document.querySelectorAll('form[data-form]').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault();
     const key = form.dataset.form;
-    const successEl = document.getElementById(`success-${key}`);
+    const successEl = document.getElementById('success-' + key);
     form.style.display = 'none';
     if (successEl) successEl.style.display = 'block';
   });
